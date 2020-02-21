@@ -16,7 +16,19 @@
 // Homepage Route
 Route::group(['middleware' => ['web', 'checkblocked']], function () {
     Route::get('/', 'WelcomeController@welcome')->name('welcome');
+    Route::get('pages/annonceUnique/{id}', 'WelcomeController@annonceUnique')->name('annonceUnique');
 });
+
+
+
+// conversations conversations
+Route::get('/annonceUnique', 'ConversationsController@index')->name('conversations');
+Route::get('/conversations', 'ConversationsController@index')->name('conversations');
+//voir une conversation en particulier
+Route::get('/convesations/{id}', 'ConversationsController@show')->name('conversations');
+
+
+
 
 // Authentication Routes
 Auth::routes();

@@ -19,4 +19,17 @@ class WelcomeController extends Controller
         return view('pages/accueil', ['annonces' => $annonces]);
         
     }
+
+    public function annonceUnique($id)
+    {
+        
+        
+        $annonceUnique = DB::select('select * from annonces where id_annonce = '. $id);
+        var_dump($annonceUnique);
+
+        return view('pages/annonceUnique', ['annonceUnique' => $annonceUnique]);
+        
+    }
+
+
 }
